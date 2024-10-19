@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best-Performing Student Recognition System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("image .jpg"); /* Add your image URL here */
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            background-position: center; /* Centers the image */
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.8); /* Add some transparency */
+            padding: 20px; /* Add padding for better spacing */
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        header {
+            
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .batch-selector {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .student-list {
+            margin-top: 20px;
+        }
+
+        .student-list table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .student-list table, th, td {
+            border: 2px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .ranking-button {
+            background-color: orange;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+
+        .ranking-button:hover {
+            background-color: green;
+        }
+
+        .ranking-result {
+            margin-top: 20px;
+        }
+
+        .ranking-result ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .ranking-result ul li {
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin: 5px 0;
+        }
+
+        .batch {
+            display: none;
+        }
+
+        .batch.active {
+            display: block;
+        }
+
+        .batch-button {
+            background-color: cornsilk;
+            font-size: 24px;
+            border-radius: 12px;
+        }
+
+        .batch-button:hover {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Best-Performing Student Recognition System</h1>
+        <p>Recognize the top 3 students per batch based on various factors</p>
+    </header>
+
+    <div class="container">
+        <div class="batch-selector">
+            <button class="batch-button" onclick="showBatch(1)">Batch 2021</button>
+            <button class="batch-button" onclick="showBatch(2)">Batch 2022</button>
+            <button class="batch-button" onclick="showBatch(3)">Batch 2023</button>
+        </div>
+
+        <!-- Batch 1 -->
+        <div class="batch" id="batch-1">
+            <div class="student-list">
+                <h2>Batch 2021 Students</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Reg no</th>
+                            <th>Name</th>
+                            <th>Academic Performance (GPA)</th>
+                            <th>Hackathons</th>
+                            <th>Paper Presentations</th>
+                            <th>Teacher Assistance</th>
+                            <th>Core Engineering Course Excellence</th>
+                        </tr>
+                    </thead>
+                    <tbody id="student-table-1">
+                        <!-- Student Data for Batch 1 -->
+                    </tbody>
+                </table>
+                <button class="ranking-button" onclick="calculateRanking(1)">Calculate Ranking for Batch 1</button>
+
+                <div class="ranking-result">
+                    <h3>Top 3 Students (Batch 2021)</h3>
+                    <ul id="ranking-list-1">
+                        <!-- Ranking for Batch 1 -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Batch 2 -->
+        <div class="batch" id="batch-2">
+            <div class="student-list">
+                <h2>Batch 2022 Students</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Reg no</th>
+                            <th>Name</th>
+                            <th>Academic Performance (GPA)</th>
+                            <th>Hackathons</th>
+                            <th>Paper Presentations</th>
+                            <th>Teacher Assistance</th>
+                            <th>Core Engineering Course Excellence</th>
+                        </tr>
+                    </thead>
+                    <tbody id="student-table-2">
+                        <!-- Student Data for Batch 2 -->
+                    </tbody>
+                </table>
+                <button class="ranking-button" onclick="calculateRanking(2)">Calculate Ranking for Batch 2</button>
+
+                <div class="ranking-result">
+                    <h3>Top 3 Students (Batch 2022)</h3>
+                    <ul id="ranking-list-2">
+                        <!-- Ranking for Batch 2 -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Batch 3 -->
+        <div class="batch" id="batch-3">
+            <div class="student-list">
+                <h2>Batch 2023 Students</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Reg no</th>
+                            <th>Name</th>
+                            <th>Academic Performance (CGPA)</th>
+                            <th>Hackathons</th>
+                            <th>Paper Presentations</th>
+                            <th>Teacher Assistance</th>
+                            <th>Core Engineering Course Excellence</th>
+                        </tr>
+                    </thead>
+                    <tbody id="student-table-3">
+                        <!-- Student Data for Batch 3 -->
+                    </tbody>
+                </table>
+                <button class="ranking-button" onclick="calculateRanking(3)">Calculate Ranking for Batch 3</button>
+
+                <div class="ranking-result">
+                    <h3>Top 3 Students (Batch 2023)</h3>
+                    <ul id="ranking-list-3">
+                        <!-- Ranking for Batch 3 -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample student data for 3 batches
+        const batches = {
+            1: [
+                { id: 21501, name: "John", gpa: 8.9, hackathons: 2, papers: 3, assistance: 1, coreExcellence: 9 },
+                { id: 21502, name: "Ram", gpa: 7.8, hackathons: 4, papers: 2, assistance: 0, coreExcellence: 8 },
+                { id: 21503, name: "Raju", gpa: 8.0, hackathons: 1, papers: 5, assistance: 2, coreExcellence: 10 },
+                { id: 21504, name: "Geeta", gpa: 9.0, hackathons: 3, papers: 4, assistance: 3, coreExcellence: 8 },
+                { id: 21505, name: "Ravi", gpa: 7.0, hackathons: 2, papers: 3, assistance: 4, coreExcellence: 7 }
+            ],
+            2: [
+                { id: 22501, name: "Lekhana", gpa: 9.7, hackathons: 3, papers: 2, assistance: 1, coreExcellence: 7 },
+                { id: 22502, name: "Sumanth", gpa: 8.9, hackathons: 2, papers: 1, assistance: 0, coreExcellence: 8 },
+                { id: 22503, name: "Sophia", gpa: 8.8, hackathons: 3, papers: 4, assistance: 1, coreExcellence: 9 },
+                { id: 22505, name: "Lavanya", gpa: 8.2, hackathons: 1, papers: 2, assistance: 0, coreExcellence: 6 },
+                { id: 22506, name: "Raghu", gpa: 7.8, hackathons: 4, papers: 3, assistance: 2, coreExcellence: 9 }
+            ],
+            3: [
+                { id: 23501, name: "Giri", gpa: 8.0, hackathons: 2, papers: 2, assistance: 1, coreExcellence: 7 },
+                { id: 23502, name: "Abhi", gpa: 9.8, hackathons: 1, papers: 3, assistance: 2, coreExcellence: 9 },
+                { id: 23503, name: "Rubiya", gpa: 7.9, hackathons: 3, papers: 4, assistance: 1, coreExcellence: 8 },
+                { id: 22504, name: "Siri", gpa: 7.8, hackathons: 4, papers: 3, assistance: 0, coreExcellence: 7 },
+                { id: 22505, name: "Yuva", gpa: 7.8, hackathons: 2, papers: 2, assistance: 0, coreExcellence: 8 }
+            ]
+        };
+
+        // Function to load student data into tables for each batch
+        function loadStudentData() {
+            for (let batch in batches) {
+                const studentTable = document.getElementById(`student-table-${batch}`);
+                batches[batch].forEach(student => {
+                    studentTable.innerHTML += `
+                        <tr>
+                            <td>${student.id}</td>
+                            <td>${student.name}</td>
+                            <td>${student.gpa}</td>
+                            <td>${student.hackathons}</td>
+                            <td>${student.papers}</td>
+                            <td>${student.assistance}</td>
+                            <td>${student.coreExcellence}</td>
+                        </tr>
+                    `;
+                });
+            }
+        }
+
+        // Load data when the page loads
+        window.onload = loadStudentData;
+
+        // Function to display the selected batch
+        function showBatch(batchNumber) {
+            const batches = document.querySelectorAll(".batch");
+            batches.forEach(batch => batch.classList.remove("active"));
+            document.getElementById(`batch-${batchNumber}`).classList.add("active");
+        }
+
+        // Function to calculate ranking for each batch
+        function calculateRanking(batchNumber) {
+            const weights = {
+                gpa: 0.4,
+                hackathons: 0.2,
+                papers: 0.2,
+                assistance: 0.1,
+                coreExcellence: 0.1
+            };
+
+            // Calculate weighted score for each student in the batch
+            const students = batches[batchNumber];
+            students.forEach(student => {
+                student.score = (student.gpa * weights.gpa) +
+                                (student.hackathons * weights.hackathons) +
+                                (student.papers * weights.papers) +
+                                (student.assistance * weights.assistance) +
+                                (student.coreExcellence * weights.coreExcellence);
+            });
+
+            // Sort students by score and get top 3
+            const topStudents = students.sort((a, b) => b.score - a.score).slice(0, 3);
+
+            // Display ranking
+            const rankingList = document.getElementById(`ranking-list-${batchNumber}`);
+            rankingList.innerHTML = "";  // Clear previous rankings
+            topStudents.forEach((student, index) => {
+                rankingList.innerHTML += `<li>${index + 1}. ${student.name} - Score: ${student.score.toFixed(2)}</li>`;
+            });
+        }
+
+        // Show the first batch by default
+        
+    </script>
+</body>
+</html>
